@@ -206,7 +206,6 @@ body{
 .scrolling-container {
   white-space: nowrap;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* Enable touch scrolling */
   margin-bottom: 100px;
   margin-top: 10px;
 }
