@@ -156,31 +156,90 @@ body{
 }
 
 /*blog-section*/
-.blogs{
-  margin-top: 50px;
-  margin-left: 70px;
+.color{
+  color: #eb6161;
 }
-.imgblog{
-  width: 400px;
-  height: 250px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+.trends{
+  margin-top: 100px;
 }
-  .descblog-container{
-    margin-bottom: 20px;
-  }
-  .descblog-container p {
-    font-weight: normal;
-  }
-  .descblog{
-    color: #000000;
-  }
-.blog-container{
-  margin-top: 30px;
-  margin-left: 100px;
-  margin-right: 50px;
+.card {
+  display: inline-block;
+  margin-bottom: 50px;
+  background-color: #fff7f7;; 
+  margin-right: 30px;
+  width: 300px;
 }
 
+.description {
+  margin-left: 50px;
+  margin-right: 10px;
+}
+.addit{
+ text-align: center;
+}
+.title{
+  text-decoration: none;
+  color: #0caab6;
+  text-align: center;
+}
+.nom{
+  text-decoration: none;
+  color:#fa6c6c;
+  font-weight: bold;
+}
+.date{
+  text-align: center;
+}
+.photo-container {
+  display: inline-block;
+}
+
+.photo-container img {
+  width: 290px;
+  height: 250px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.scrolling-container {
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Enable touch scrolling */
+  margin-bottom: 100px;
+  margin-top: 10px;
+}
+
+.scrolling-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.scrolling-indicators .indicator {
+  width: 20px;
+  height: 20px;
+  background-color: gray;
+  margin: 0 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+}
+
+.scrolling-indicators .indicator.active {
+  background-color: black;
+}
+.read-more{
+  margin-bottom: 20px;
+  margin-left: 100px;
+  background-color:#fa6c6c;
+  border-color: #ffaaaa;
+  color: #e7dfe1;
+}
   /*footer*/
   .fb{
     color: rgb(0, 0, 0);

@@ -22,7 +22,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Italianno&family=La+Belle+Aurore&family=Monsieur+La+Doulaise&family=Moon+Dance&family=Parisienne&family=Tangerine&display=swap"
         rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <link href="css/index.css" rel="stylesheet">
     <title>DAILYBLOG</title>
 </head>
 
@@ -43,10 +44,10 @@
                         <a class="nav-link " href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mt-3" href="#">About</a>
+                        <a class="nav-link mt-3" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mt-3" href="#">Contact</a>
+                        <a class="nav-link mt-3" href="contact.php">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -54,9 +55,9 @@
     </div>
 
     <nav>
-        <ul class="nav fixed-top">
+        <ul class="nav fixed-top bg-light">
             <div class="logo">
-                <a href="index.php" class="logo text-white"><b>DAILY BLOG</b></a>
+                <a href="index.php" class="logo text-dark">DAILY BLOG</a>
             </div>
             <li class="nav-item">
                 <button class="btn menu text-dark font-weight-bold" type="button" data-bs-toggle="offcanvas"
@@ -68,20 +69,20 @@
                 <a class="nav-link text-dark font-weight-bold" href="index.php">HOME</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link text-dark font-weight-bold" href="#">ABOUT</a>
+                <a class="nav-link text-dark font-weight-bold" href="about.php">ABOUT</a>
             </li>
             <li class="nav-item dropdown">
                 <div class="dropdown">
-                    <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdown "
+                    <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="blog.php" id="navbarDropdown "
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">BLOG</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Recipes</a></li>
-                        <li><a class="dropdown-item" href="#">Travel</a></li>
+                        <li><a class="dropdown-item" href="blog.php?theme=food">Recipes</a></li>
+                        <li><a class="dropdown-item" href="blog.php?theme=travel">Travel</a></li>
                     </ul>
                 </div>
             </li>
             <li class="nav-item ">
-                <a class="nav-link text-dark font-weight-bold" href="#">CONTACT</a>
+                <a class="nav-link text-dark font-weight-bold" href="contact.php">CONTACT</a>
             </li>
         </ul>
     </nav>
@@ -163,7 +164,8 @@
         <div class="img-container-banner">
             <img src="images/recipes.png" alt="My Image" class="img-layer">
             <div class="img-overlay-banner">
-                <button class="img-button text-white"><b>Discover our Recipes</b></button>
+                <button class="img-button text-white"><a href="blogs.php?theme=food"><b>Discover our
+                            Recipes</b></a></button>
             </div>
         </div>
 
@@ -195,17 +197,19 @@
             <div class="img-container-banner">
                 <img src="images/img10.jpg" alt="My Image" class="img-layer">
                 <div class="img-overlay-banner">
-                    <button class="img-button">Discover our Trips</button>
+                    <button class="img-button"><a href="blogs.php?theme=travel">Discover our Trips</a></button>
                 </div>
             </div>
-
+            <h3 class="trends text-center"><i class="fa fa-newspaper fa-spin fa-sm color"></i> Decouvrer les differents sujet avec DailyBlog</h3>
             <?php
 require('connection.php');
 $req1 = "SELECT * FROM article";
 $res1 = $con->query($req1);
-
-echo '<div class="container blogs">
-    <div class="row">';
+echo '<div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="scrolling-container">';
 
 while ($row = $res1->fetch_assoc()) {
     $title = $row['title'];
@@ -218,22 +222,23 @@ while ($row = $res1->fetch_assoc()) {
     $row = $res2->fetch_assoc();
     $nom = $row['nom'];
 
-    echo '<div class="col-md-6">
-        <div class="blog-container">
-            <div class="imgblog-container">
-                <img src="' . $image . '" class="imgblog" alt="images">
-            </div>
-            <div class="descblog-container">
-                <p>' . $description . '</p>
-                <p class="descblog"><a href="" class="title">' . $title . '</a> | <a href="" class="nom">' . $nom . '</a> | ' . $date . '</p>
-            </div>
-        </div>
-    </div>';
+    echo '<div class="photo-container">
+            <div class="card">
+                <img src="' . $image . '"  alt="images">
+                    <p class="text-wrap addit "><a href="" class="title"><b>' . $title . '</b></a> By <a href="" class="nom">' . $nom . '</a> </p>
+                    <p class="text-wrap description">' . $description . '</p>
+                    <p class="date"> ' . $date . '</p>
+                    <button class="read-more"><a> Read more </a></button>
+                    </div>
+        </div>';
 }
 
-echo '</div></div></div>';
+echo '          </div>
+            </div>
+        </div>
+    </div>
+</div>';
 ?>
-
             <footer class="bg-dark text-white text-center">
                 <div class="container">
                     <div class="row">

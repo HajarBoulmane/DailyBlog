@@ -1,0 +1,158 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /*offcanvas*/
+  
+  .canvalist{
+    margin-top: 10px;
+    }
+  
+  /*navbar*/
+  
+  .nav-item{
+    margin-left: 20px;
+  }
+  .logo{
+    margin-left: 90px;
+    margin-right: 100px;
+    text-decoration: none;
+    font-size: 26px;
+  }
+  .menu{
+    margin-top:1.2px;
+    color: white;
+  }
+ 
+  /*imgbanner*/
+  .img-container-banner {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .img-layer {
+    width: 100%;
+    background-size: cover;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .img-overlay-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .img-button {
+    border-radius: 50px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgb(0, 0, 0);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .img-button:hover {
+    border-radius: 50px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+  }
+  
+  
+  /*blog-section*/
+  .blog-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .imgblog-container {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .imgblog {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .descblog-container {
+    flex: 1 1 auto;
+  }
+  
+  .descblog-container p {
+    margin-bottom: 10px;
+  }
+  
+  .descblog-container p.descblog {
+    font-style: italic;
+    color: #999;
+  }
+  
+    /*footer*/
+    .fb{
+      color: rgb(0, 0, 0);
+      font-size: 22px;
+    }
+    .fb:hover{
+      color: rgb(24, 104, 173);
+    }
+    .gg{
+      color: rgb(0, 0, 0);
+      font-size: 22px;
+    }
+    .gg:hover{
+      color: rgb(197, 0, 0);
+    }
+    .pintr{
+      color: rgb(0, 0, 0);
+      font-size: 22px;
+    }
+    .pintr:hover{
+      color: rgb(235, 39, 13);
+    }
+    .tw{
+      color:rgb(0, 0, 0);
+      font-size: 22px;
+    }
+    .tw:hover{
+      color: rgb(19, 129, 226);
+    }
+    .in{
+      color: rgb(0, 0, 0);
+      font-size: 22px;
+    }
+    .in:hover{
+      color: rgb(0, 136, 255);
+    }
+    .ytb{
+      color: rgb(0, 0, 0);
+      font-size: 22px;
+    }
+    .ytb:hover{
+      color: rgb(214, 18, 18);
+    }
+    .insta{
+      color: rgb(0, 0, 0);
+      font-size: 22px;
+    }
+    .insta:hover{
+      color: #E1306C;
+    }
+    
+    footer {
+      text-align: center;
+      width: 100%;
+      height: 300px;
+      flex: 0 0 calc(33.33% - 1rem);
+      background-color: rgb(31, 28, 28);
+      color: #fff;
+    }
+  
+    
+  

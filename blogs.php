@@ -22,7 +22,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Italianno&family=La+Belle+Aurore&family=Monsieur+La+Doulaise&family=Moon+Dance&family=Parisienne&family=Tangerine&display=swap"
         rel="stylesheet">
-    <link href="css/blog.css" rel="stylesheet">
+    <link href="css/blogs.css" rel="stylesheet">
     <title>DAILYBLOG</title>
 </head>
 
@@ -54,25 +54,25 @@
     </div>
 
     <nav>
-        <ul class="nav fixed-top bg-dark">
+        <ul class="nav fixed-top">
             <div class="logo">
                 <a href="index.php" class="logo text-white"><b>DAILY BLOG</b></a>
             </div>
             <li class="nav-item">
-                <button class="btn menu text-white font-weight-bold" type="button" data-bs-toggle="offcanvas"
+                <button class="btn menu text-dark font-weight-bold" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#democanva">
                     <i class="fas fa-bars"></i> MENU
                 </button>
             </li>
             <li class="nav-item ">
-                <a class="nav-link text-white font-weight-bold" href="index.php">HOME</a>
+                <a class="nav-link text-dark font-weight-bold" href="index.php">HOME</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link text-white font-weight-bold" href="about.php">ABOUT</a>
+                <a class="nav-link text-dark font-weight-bold" href="about.php">ABOUT</a>
             </li>
             <li class="nav-item dropdown">
                 <div class="dropdown">
-                    <a class="nav-link text-white font-weight-bold dropdown-toggle" href="#" id="navbarDropdown "
+                    <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdown "
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">BLOG</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Recipes</a></li>
@@ -81,70 +81,74 @@
                 </div>
             </li>
             <li class="nav-item ">
-                <a class="nav-link text-white font-weight-bold" href="contact.php">CONTACT</a>
+                <a class="nav-link text-dark font-weight-bold" href="contact.php">CONTACT</a>
             </li>
         </ul>
     </nav>
 
+    <div id="demo" class="carousel slide overflow-hidden" data-bs-ride="carousel" data-bs-interval="2000">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <video class="d-block w-100" autoplay loop muted>
+                        <source src="images/banner1.mp4" type="video/mp4">
+                    </video>
+                    <a href="index.php" class="carousel-caption">DailyBlog</a>
+                </div>
+                <div class="carousel-item">
+                    <video class="d-block w-100" autoplay loop muted>
+                        <source src="images/banner2.mp4" type="video/mp4">
+                    </video>
+                    <a href="index.php" class="carousel-caption">DailyBlog</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php
 require('connection.php');
-$id1 = $_GET['idblog'];
+$theme1=$_GET['theme'];
 $req1 = "SELECT * FROM article";
 $res1 = $con->query($req1);
 
-echo '
-<section class="our-courses" id="courses">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-heading">
-          <h2>Our Popular Courses</h2>
-        </div>
-      </div>
-      <div class="col-lg-12">
-        <div class="owl-courses-item owl-carousel">';
+echo '<div class="container blogs">
+    <div class="row">';
 
 while ($row = $res1->fetch_assoc()) {
-    $id2 = $row['id'];
-    if ($id1 == $id2) {
-        $title = $row['title'];
-        $image = $row['image'];
-        $description = $row['description'];
-        $content = $row['content'];
-        $date = $row['date'];
-        $idauteur = $row['id_auteur'];
-        $req2 = "SELECT nom FROM auteur WHERE id = $idauteur";
-        $res2 = $con->query($req2);
-        $row = $res2->fetch_assoc();
-        $nom = $row['nom'];
-
-        echo '
-          <div class="item">
-            <img src="' . $image . '" alt="Course One">
-            <div class="down-content">
-              <h4>' . $title . '</h4>
-              <div class="info">
-                <div class="row">
-                  <div class="col-8">
-                    <ul>
-                      <li>'.$nom.'</li>
-                      <li>'.$date.'</i></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>';
-    }
-}
-
-echo '
+    $theme2=$row['theme'];
+    if ($theme1==$theme2) {
+    $id=$row['id'];
+    $title = $row['title'];
+    $image = $row['image'];
+    $description = $row['description'];
+    $date = $row['date'];
+    $idauteur = $row['id_auteur'];
+    $req2 = "SELECT nom FROM auteur WHERE id = $idauteur";
+    $res2 = $con->query($req2);
+    $row = $res2->fetch_assoc();
+    $nom = $row['nom'];
+    echo '<div class="col-md-6">
+    <div class="blog-container">
+        <div class="imgblog-container">
+            <img src="' . $image . '" class="imgblog" alt="images">
         </div>
-      </div>
+        <div class="descblog-container">
+            <p>' . $description . '</p>
+            <p class="descblog"><a href="blog.php?idblog=' . $id . '" class="title">' . $title . '</a> | <a href="author.php?idauteur=' . $idauteur . '" class="nom">' . $nom . '</a> | ' . $date . '</p>
+        </div>
     </div>
-  </div>
-</section>';
+</div>';
+}}
+
+echo '</div></div></div>';
 ?>
 
     <footer class="bg-dark text-white text-center">
